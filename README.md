@@ -1,2 +1,1 @@
-my readme file 
-My personal javascript projects
+The read me file to my personal javascript projects
