@@ -1,0 +1,22 @@
+#countLabel{
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
+.container{
+    box-sizing: content-box;
+    width:1500px;
+    width:700px;
+    border-radius: 30px;
+    color:aqua;
+    border: 2px solid red;
+    margin-left: 200px;
+    margin-top: 50px;
+
+}
+button{
+    display: inline-block;
+    margin-left: 150px;
+   margin-bottom: 20px;   
+}
