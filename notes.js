@@ -620,6 +620,7 @@ console.log(rabbit.name);
 // set = binds an object property to a function 
 //       when that property is assigned a value
 
+/*
 class Car {
     constructor(power){
         this._gas = 25;
@@ -634,17 +635,352 @@ class Car {
     set gas(value){
         if(value > 50){
             value = 50;
-        }else if(){
+        }else if(value < 0 ){
+            value = 0;
+        }
             this._gas = value;
 
-        }
+        
       
     }
 }
 
 let car = new Car(400);
 
-car.gas = 1000000000;
+car.gas = -100;
 
 console.log(car.power);
 console.log(car.gas);
+*/
+
+// anonymous objects = Objects without a name 
+//                     Not directly referenced
+//                     Less syntax. No need for unique names
+
+/*
+class Card {
+    constructor(value, suit) {
+        this.value = value;
+        this.suit = suit;
+}
+}
+
+let cards = [new Card("A", "Heart"),
+              new Card("A", "Spades"),
+             new Card("A", "Diamonds"),
+             new Card("A", "Clubs"),
+              new Card("A", "Heart"),
+              new Card("A", "Spades"),
+              new Card("A", "Diamonds"),
+              new Card("A", "Clubs")];
+
+//console.log(cards[0].value + card[0].suit); 
+
+cards.forEach(card => console.log(`${card.value} ${card.suit}`));
+*/
+
+// error = object with a description of 
+//       = something went wrong
+
+//       can't open a file
+//       Lose connection
+//       User types incorrect input
+//       TypeError
+
+// throw = executes a user-defined error 
+
+/*
+try {
+    let x = window.prompt("Enter a #");
+    x = number(x);
+    if(isNaN(x))  throw "That wasn't a number!";
+    if(x == "") throw "That was empty!";
+
+    console.log(`${x} is a number`);
+
+}
+catch(error){    
+    console.log(error);
+}
+finally{
+    console.log("This always executes");
+}
+
+*/
+
+// setTimeout() = invokes a function after a number of milliseconds
+//                asynchronous function(doesn't pause execution)
+
+/*
+let item = "cryptocurrency";
+let price = 420.69;
+
+let timer1 = setTimeout(firstMessage, 3000, item, price);
+let timer2 = setTimeout(secondMessage, 6000);
+let timer3 = setTimeout(thirdMessage, 9000);
+
+function firstMessage(){
+    alert(`Buy this ${item} for ${price}`); 
+}
+
+function secondMessage(){
+    alert(`This is not a scam!`); 
+}
+function thirdMessage(){
+    alert(`Do It!`); 
+}
+
+document.getElementById("myButton").onclick = function(){
+    clearTimeout(timer1);
+    clearTimeout(timer2);
+    clearTimeout(timer3);
+    alert(`Thanks for buying`);
+}
+*/
+
+// setInterval() = invokes a function repeatedly after a number of milliseconds 
+//                 asynchronous function(doesn't pause execution)
+/*
+let count = 0;
+let max = window.prompt("Count up to what #?");
+max = Number(max);
+
+const myTimer = setInterval(countUp, 1000, max);
+
+function countUp() {
+    count+=1;
+    console.log(count);
+    if(count >= max) {
+        clearInterval(myTimer);
+    }
+}
+
+*/
+
+// The Date object is used to work with dates & times
+/*
+let date = new Date();
+let year = date.getFullYear();  
+let dayOfMonth = date.getDate(); 
+let dayOfWeek = date.getDay(); 
+let month = date.getMonth(); 
+let hour = date.getHours(); 
+let minutes = date.getMinutes(); 
+let seconds = date.getSeconds(); 
+let ms = date.getMilliseconds(); 
+*/
+/*
+date.setFullYear(2024);
+date.setMonth(11);
+date.setDate(31);
+date.setHours(23);
+date.setMinutes(1);
+date.setSeconds(30);
+date.setMilliseconds(0);
+*/
+
+
+//date = date.toLocaleString();
+
+// document.getElementById("myLabel").innerHTML = format(date);
+// document.getElementById("myLabel").innerHTML = formatTime(date);
+
+//console.log(date.getFullYear(), date.getMonth(), date.getDate());
+
+//create function that will format date
+
+ /*
+ function formatDate(date){
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    return `${month}/${day}/${year}`;
+}
+
+function formatTime(date){
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let ms = date.getMilliseconds();
+    let amOrPm = hours >= 12 ? "pm" : "am";
+
+    hours = (hours % 12) || 12;
+
+    return `${hours}:${minutes}:${seconds} ${amOrPm} `;
+}
+*/
+
+// synchronous code = In an ordered sequence.
+//                    Step-by-step linear instructions
+//                    (start now, finish now)
+
+// asynchronous code = Out of sequence
+//                     Ex. Access a database
+//                         Fetch a file
+//                         Tasks that take time
+//                     (start now, finish sometime later)
+
+/*
+console.log("START");
+console.log("This step is synchronous");
+console.log("END");
+*/
+/*
+console.log("START");
+setTimeout(() => console.log("This is asynchronous"), 5000);
+console.log("END");
+*/
+
+// console.time() = Starts a timer you can use to 
+//                  track how long an operation takes
+//                  Give each timer a unique name.
+
+//start
+//console.time("Response time");
+
+//alert("CLICK THE OK BUTTON!");
+//setTimeout(() => console.log("HELlO!"), 3000);
+
+//end
+//console.timeEnd("Response time");
+
+// promise = object that encapsulates the result of an asynchronous operation
+//           let asynchronous methods return values like synchronous methods
+//          "I promise to return something in the future"
+
+//          the STATE is 'pending then: 'fulfilled' or 'rejected'
+//          the RESTFUL is what can be returned
+//          2 parts producing & consuming
+
+// Promise from other tutorial ----------------------------------------------------
+
+//The Promise object is used for asynchronous computations.  Represents a value which may be available now, or in the future, or never.
+// Three stage of PROMISE 
+// PENDING : initial state, not fulfilled or rejected.
+// FULFILLED : meaning that the operation completely successfully.
+// REJECTED : meaning that the operation failed.
+/*
+const promise = new Promise((resolve, reject) => {
+
+    let fileLoaded = true;
+
+    if(fileLoaded){
+        resolve("File loaded");
+    }
+    else{
+        reject("File NOT loaded");
+
+        }    
+});
+
+promise.then(value => console.log(value))
+    .catch(error => console.log(error));
+
+*/
+
+/*
+const promise = new Promise(resolve => {
+  setTimeout(resolve, 5000);
+});
+
+promise.then( () => console.log("Thanks fo waiting!"));
+*/
+
+// You can pass arguments to promised
+
+/*
+const wait = time = new Promise(resolve => {
+    setTimeout(resolve, time);
+  });
+  
+  wait(3000).then( () => console.log("Thanks for waiting!"));
+  */
+
+  // async = makes a function return a promise
+
+  /*
+  async function loadFile(){
+    let fileLoaded = true;
+
+    if(fileLoaded){
+       return "File loaded";
+    }
+    else{
+        throw "File NOT loaded";
+
+        } 
+  }  
+
+loadFile().then(value => console.log(value))
+    .catch(error => console.log(error));
+    */
+
+    // await = makes an async function wait for a Promise
+/*
+    async function loadFile(){
+        let fileLoaded = true;
+    
+        if(fileLoaded){
+           return "File loaded";
+        }
+        else{
+            throw "File NOT loaded";
+    
+            } 
+      }  
+
+      async function startProcess(){
+try{
+    //let message = await locateFile();
+      //console.log(message);
+      let message = await loadFile();
+      console.log(message);
+      //message = await closeFile();
+      //console.log(message);
+      }
+      catch(error){
+        console.log(error);
+         }
+      }
+      startProcess();
+    */
+
+    // The idea behind a module is that it's a file of reusable code
+    // We can import sections of pre-written code to use whenever you want 
+    // Great for any general utility values and functions
+    // Helps to make your code more reusable and maintainable
+    // Think of modules as separate chapters of a book
+
+    // DOM = Document Object Model (API)
+    //       An interface for changing the content of  page
+
+    // console.dir(document);
+    // console.log(document.title);
+    // console.log(document.URL);
+    // document.title = "Title goes here!";
+    // document.location = "http://www.google.com/";
+
+    // document.body.style.backgroundColor = "skyblue";
+
+    // add/change HTML elements
+    // .innerHTML (vulnerable to XSS attacks)
+    // .textContent (more secure)
+
+    // const nameTag = document.createElement("h1");
+    // nameTag.innerHTML = "Sunday";
+    // document.body.append(nameTag);
+
+
+//     const title = document.getElementById("myTitle");
+
+//  title.style.backgroundColor ="#222222";
+//  title.style.color ="rgb(50, 200, 250)";
+//  title.style.fontFamily = "consolas";
+//  title.style.textAlign = "center";
+//  title.style.border = "2px solid";
+//  title.style.display = "block";
+
+// .addEventListener(event, function, useCapture)
+// You can add many event handlers to one element.
+// Even the same event that invokes different functions
